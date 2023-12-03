@@ -1,6 +1,7 @@
 game:GetService("UserInputService").InputBegan:Connect(function(inputObject, gameProcessedEvent)
 if gameProcessedEvent or inputObject.KeyCode ~= Enum.KeyCode.Slash then return end
 game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar:CaptureFocus()
+game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar.TextTransparency = 0.4
 end)
 --[=[
  d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
