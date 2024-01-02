@@ -1,8 +1,3 @@
-game:GetService("UserInputService").InputBegan:Connect(function(inputObject, gameProcessedEvent)
-if gameProcessedEvent or inputObject.KeyCode ~= Enum.KeyCode.Slash then return end
-game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar:CaptureFocus()
-game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar.TextTransparency = 0.4
-end)
 --[=[
  d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
 88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
@@ -12,7 +7,7 @@ end)
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER
 ]=]
 
--- Instances: 28 | Scripts: 4 | Modules: 7
+-- Instances: 29 | Scripts: 4 | Modules: 8
 local G2L = {};
 
 -- StarterGui.ScreenGui
@@ -198,9 +193,13 @@ G2L["1b"] = Instance.new("StringValue", G2L["1a"]);
 G2L["1b"]["Value"] = [[Stopping seizure..................................done.]];
 G2L["1b"]["Name"] = [[Output]];
 
+-- StarterGui.ScreenGui.Commands.crashuser
+G2L["1c"] = Instance.new("ModuleScript", G2L["d"]);
+G2L["1c"]["Name"] = [[crashuser]];
+
 -- StarterGui.ScreenGui.Main
-G2L["1c"] = Instance.new("LocalScript", G2L["1"]);
-G2L["1c"]["Name"] = [[Main]];
+G2L["1d"] = Instance.new("LocalScript", G2L["1"]);
+G2L["1d"]["Name"] = [[Main]];
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
@@ -222,7 +221,8 @@ Closure = function()
     local script = G2L["e"];
 local function module()
 	local sschat = function(sentence)
-		require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted:fire(sentence)
+		local sanitizedSentence = string.gsub(sentence, ":", "")
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
 	end
 	for i = 1, 25 do
 		sschat(":give all ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
@@ -244,7 +244,8 @@ local function module()
 	--[[START VARIABLES/FUNCTIONS]]--
 	local RS = game:GetService("RunService").RenderStepped
 	local sschat = function(sentence)
-		require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted:fire(sentence)
+		local sanitizedSentence = string.gsub(sentence, ":", "")
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
 	end
 	--[[STOP VARIABLES/FUNCTIONS]]--
 	--[[START MAIN]]--
@@ -280,7 +281,8 @@ Closure = function()
     local script = G2L["12"];
 local function module()
 	local sschat = function(sentence)
-		require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted:fire(sentence)
+		local sanitizedSentence = string.gsub(sentence, ":", "")
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
 	end
 	for i = 1, 15 do
 		sschat(":size all 1.01")
@@ -300,7 +302,8 @@ local function module()
 	local VoiceEnabled = false
 	local TargetForTP = nil
 	local sschat = function(sentence)
-		require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted:fire(sentence)
+		local sanitizedSentence = string.gsub(sentence, ":", "")
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
 	end
 	local MarketplaceService = game:GetService("MarketplaceService")
 	local Players = game:GetService("Players")
@@ -665,7 +668,8 @@ Closure = function()
     local script = G2L["18"];
 local RS = game:GetService("RunService").RenderStepped
 local sschat = function(sentence)
-	require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted:fire(sentence)
+	local sanitizedSentence = string.gsub(sentence, ":", "")
+	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
 end
 local function start()
 	sschat(":fogend 0")
@@ -699,7 +703,8 @@ G2L_MODULES[G2L["1a"]] = {
 Closure = function()
     local script = G2L["1a"];
 local sschat = function(sentence)
-	require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted:fire(sentence)
+	local sanitizedSentence = string.gsub(sentence, ":", "")
+	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
 end
 local function stop()
 	pcall(function()
@@ -711,6 +716,24 @@ local function stop()
 end
 local function module()
 	stop()
+end
+
+return module
+
+end;
+};
+G2L_MODULES[G2L["1c"]] = {
+Closure = function()
+    local script = G2L["1c"];
+local sschat = function(sentence)
+	local sanitizedSentence = string.gsub(sentence, ":", "")
+	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
+end
+local module = function(username)
+	username = username or nil
+	for i = 1,25 do
+		sschat(":give "..username.." ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+	end
 end
 
 return module
@@ -754,8 +777,8 @@ local script = G2L["c"];
 end;
 task.spawn(C_c);
 -- StarterGui.ScreenGui.Main
-local function C_1c()
-local script = G2L["1c"];
+local function C_1d()
+local script = G2L["1d"];
 	--[[START VARIABLES]]--
 	local UIS = game:GetService("UserInputService")
 	local RS = game:GetService("RunService")
@@ -832,7 +855,6 @@ local script = G2L["1c"];
 			local arguments = nil
 			if string.find(command, " ") then
 				local splitCommand = string.split(command, " ")
-				lastCommand = splitCommand[1]
 				command = splitCommand[1]
 				arguments = splitCommand[2]
 			end
@@ -853,6 +875,11 @@ local script = G2L["1c"];
 	end
 	--[[END FUNCTIONS]]--
 	--[[START MAIN]]--
+	game:GetService("UserInputService").InputBegan:Connect(function(inputObject, gameProcessedEvent)
+		if gameProcessedEvent or inputObject.KeyCode ~= Enum.KeyCode.Slash then return end
+		game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar:CaptureFocus()
+		game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar.TextTransparency = 0.4
+	end)
 	doneEvent.Event:Connect(insertWrite)
 	insertLine("Loading CMD...")
 	task.wait(3)
@@ -861,6 +888,6 @@ local script = G2L["1c"];
 	doneEvent:Fire()
 	--[[END MAIN]]--
 end;
-task.spawn(C_1c);
+task.spawn(C_1d);
 
 return G2L["1"], require;
