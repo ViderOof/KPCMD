@@ -225,7 +225,7 @@ local function module()
 		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
 	end
 	for i = 1, 25 do
-		sschat(":give all ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+		sschat("give all ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
 		task.wait()
 	end
 end
@@ -244,31 +244,30 @@ local function module()
 	--[[START VARIABLES/FUNCTIONS]]--
 	local RS = game:GetService("RunService").RenderStepped
 	local sschat = function(sentence)
-		local sanitizedSentence = string.gsub(sentence, ":", "")
-		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
 	end
 	--[[STOP VARIABLES/FUNCTIONS]]--
 	--[[START MAIN]]--
-	sschat(":a If you have epilepsy, leave now.")
+	sschat("a If you have epilepsy, leave now.")
 	task.wait()
-	sschat(":music "..MusicID)
+	sschat("music "..MusicID)
 	task.wait(WaitTime)
-	sschat(":fogend 0")
+	sschat("fogend 0")
 	local conn = RS:Connect(function()
 		local i, j, k = math.random(0,255), math.random(0,255), math.random(0,255)
-		sschat(":fogcolor " .. i .. "," .. j .. "," .. k)
+		sschat("fogcolor " .. i .. "," .. j .. "," .. k)
 	end)
-	sschat(":freeze all")
+	sschat("freeze all")
 	task.wait(2.5)
 	conn:Disconnect()
 	local delaay = 0
 	for i = 1,10 do
-		sschat(":size all 1.01")
+		sschat("size all 1.01")
 		task.wait(0.30)
 	end
 	task.wait()
 	for i = 1, 25 do
-		sschat(":give all ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+		sschat("give all ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
 		task.wait()
 	end
 	--[[STOP MAIN]]--
@@ -281,11 +280,10 @@ Closure = function()
     local script = G2L["12"];
 local function module()
 	local sschat = function(sentence)
-		local sanitizedSentence = string.gsub(sentence, ":", "")
-		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
 	end
 	for i = 1, 15 do
-		sschat(":size all 1.01")
+		sschat("size all 1.01")
 		task.wait()
 	end
 end
@@ -302,8 +300,7 @@ local function module()
 	local VoiceEnabled = false
 	local TargetForTP = nil
 	local sschat = function(sentence)
-		local sanitizedSentence = string.gsub(sentence, ":", "")
-		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
 	end
 	local MarketplaceService = game:GetService("MarketplaceService")
 	local Players = game:GetService("Players")
@@ -505,19 +502,19 @@ local function module()
 	local CustomizeGlitchButton = CustomizationTab:CreateButton({
 		Name = "Customize Glitch",
 		Callback = function()
-			sschat(":removehats me")
-			sschat(":hat me 9299333456")
-			sschat(":shirt me 1220219205")
-			sschat(":pants me 2934773571")
+			sschat("removehats me")
+			sschat("hat me 9299333456")
+			sschat("shirt me 1220219205")
+			sschat("pants me 2934773571")
 		end,
 	})
 	local CustomizeErrorButton = CustomizationTab:CreateButton({
 		Name = "Customize Error",
 		Callback = function()
-			sschat(":removehats me")
-			sschat(":hat me 11641704751, 11344882187")
-			sschat(":shirt me 4979945150")
-			sschat(":pants me 730003802")
+			sschat("removehats me")
+			sschat("hat me 11641704751, 11344882187")
+			sschat("shirt me 4979945150")
+			sschat("pants me 730003802")
 		end,
 	})
 	local NameInput = TeleportationTab:CreateInput({
@@ -668,14 +665,13 @@ Closure = function()
     local script = G2L["18"];
 local RS = game:GetService("RunService").RenderStepped
 local sschat = function(sentence)
-	local sanitizedSentence = string.gsub(sentence, ":", "")
-	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
+	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
 end
 local function start()
-	sschat(":fogend 0")
+	sschat("fogend 0")
 	_G.seizure = RS:Connect(function()
 		local i, j, k = math.random(0,255), math.random(0,255), math.random(0,255)
-		sschat(":fogcolor " .. i .. "," .. j .. "," .. k)
+		sschat("fogcolor " .. i .. "," .. j .. "," .. k)
 	end)
 end
 local function stop()
@@ -683,7 +679,7 @@ local function stop()
 		_G.seizure:Disconnect()
 	end)
 	task.wait(0.1)
-	sschat(":fogend 999999999999999999999999999999")
+	sschat("fogend 999999999999999999999999999999")
 	_G.seizure = nil
 end
 local function module(seconds)
@@ -711,7 +707,7 @@ local function stop()
 		_G.seizure:Disconnect()
 	end)
 	task.wait(0.1)
-	sschat(":fogend 999999999999999999999999999999")
+	sschat("fogend 999999999999999999999999999999")
 	_G.seizure = nil
 end
 local function module()
@@ -726,13 +722,12 @@ G2L_MODULES[G2L["1c"]] = {
 Closure = function()
     local script = G2L["1c"];
 local sschat = function(sentence)
-	local sanitizedSentence = string.gsub(sentence, ":", "")
-	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
+	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
 end
 local module = function(username)
 	username = username or nil
 	for i = 1,25 do
-		sschat(":give "..username.." ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+		sschat("give "..username.." ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
 	end
 end
 
@@ -875,12 +870,6 @@ local script = G2L["1d"];
 	end
 	--[[END FUNCTIONS]]--
 	--[[START MAIN]]--
---[[	game:GetService("UserInputService").InputBegan:Connect(function(inputObject, gameProcessedEvent)
-		if gameProcessedEvent or inputObject.KeyCode ~= Enum.KeyCode.Slash then return end
-		game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar:CaptureFocus()
-		game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar.TextTransparency = 0.4
-	end)
-]]
 	doneEvent.Event:Connect(insertWrite)
 	insertLine("Loading CMD...")
 	task.wait(3)
