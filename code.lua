@@ -300,7 +300,7 @@ local function module()
 	local VoiceEnabled = false
 	local TargetForTP = nil
 	local sschat = function(sentence)
-		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer.PlayerGui:WaitForChild("CommandBar"), sentence)
 	end
 	local MarketplaceService = game:GetService("MarketplaceService")
 	local Players = game:GetService("Players")
