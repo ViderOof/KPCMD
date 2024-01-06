@@ -222,7 +222,7 @@ Closure = function()
 local function module()
 	local sschat = function(sentence)
 		local sanitizedSentence = string.gsub(sentence, ":", "")
-		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer.PlayerGui:WaitForChild("CommandBar"), sanitizedSentence)
 	end
 	for i = 1, 25 do
 		sschat("give all ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
@@ -244,7 +244,7 @@ local function module()
 	--[[START VARIABLES/FUNCTIONS]]--
 	local RS = game:GetService("RunService").RenderStepped
 	local sschat = function(sentence)
-		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer.PlayerGui:WaitForChild("CommandBar"), sentence)
 	end
 	--[[STOP VARIABLES/FUNCTIONS]]--
 	--[[START MAIN]]--
@@ -280,7 +280,7 @@ Closure = function()
     local script = G2L["12"];
 local function module()
 	local sschat = function(sentence)
-		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
+		game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer.PlayerGui:WaitForChild("CommandBar"), sentence)
 	end
 	for i = 1, 15 do
 		sschat("size all 1.01")
@@ -665,7 +665,7 @@ Closure = function()
     local script = G2L["18"];
 local RS = game:GetService("RunService").RenderStepped
 local sschat = function(sentence)
-	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
+	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer.PlayerGui:WaitForChild("CommandBar"), sentence)
 end
 local function start()
 	sschat("fogend 0")
@@ -700,7 +700,7 @@ Closure = function()
     local script = G2L["1a"];
 local sschat = function(sentence)
 	local sanitizedSentence = string.gsub(sentence, ":", "")
-	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sanitizedSentence)
+	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer.PlayerGui:WaitForChild("CommandBar"), sanitizedSentence)
 end
 local function stop()
 	pcall(function()
@@ -722,7 +722,7 @@ G2L_MODULES[G2L["1c"]] = {
 Closure = function()
     local script = G2L["1c"];
 local sschat = function(sentence)
-	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer:WaitForChild("CommandBar"), sentence)
+	game:GetService("ReplicatedStorage").Remote.CommandRemote.Send:FireServer(game.Players.LocalPlayer.PlayerGui:WaitForChild("CommandBar"), sentence)
 end
 local module = function(username)
 	username = username or nil
