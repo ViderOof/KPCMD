@@ -870,6 +870,11 @@ local script = G2L["1d"];
 	end
 	--[[END FUNCTIONS]]--
 	--[[START MAIN]]--
+game:GetService("UserInputService").InputBegan:Connect(function(inputObject, gameProcessedEvent)
+		if gameProcessedEvent or inputObject.KeyCode ~= Enum.KeyCode.Slash then return end
+		game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar:CaptureFocus()
+		game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar.TextTransparency = 0.4
+	end)
 	doneEvent.Event:Connect(insertWrite)
 	insertLine("Loading CMD...")
 	task.wait(3)
